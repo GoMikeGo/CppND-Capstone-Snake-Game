@@ -26,6 +26,7 @@ void Snake::Update() {
     if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
       UpdateBody(current_cell, prev_cell);
     }
+  }
 }
 
 void Snake::UpdateHead() {

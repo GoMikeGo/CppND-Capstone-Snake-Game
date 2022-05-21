@@ -3,6 +3,8 @@
 #include <memory>
 #include "SDL.h"
 #include <algorithm>
+#include "controller.h"
+#include <thread>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : //snake(grid_width, grid_height),
@@ -43,7 +45,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 //  std::promise<bool> prms;
 //  std::future<bool> ftr = prms.get_future();
   
-  threads.emplace_back(std::thread(&Controller::HandleInput, controller, running, snakes[0]));
+  threads.emplace_back(std::thread(&Controller::HandleInput, controller, std::ref(running), std::ref(snakes[0])));
   
 //  if(ftr.get() == false) return;
 /////////////////////////////////////////////////////////////////////////////////////////  

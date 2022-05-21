@@ -3,6 +3,7 @@
 #include "SDL.h"
 #include "snake.h"
 #include <memory>
+#include <thread>
 
 void Controller::ChangeDirection(std::shared_ptr<Snake> &snake, Snake::Direction input,
                                  Snake::Direction opposite) const {
